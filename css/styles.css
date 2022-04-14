@@ -124,7 +124,7 @@ body {
 .middle {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(274px, 320px));
-    gap: 16px;
+    gap: 36px;
     padding: 48px 16px;
     justify-items: center;
     align-items: center;
@@ -139,8 +139,13 @@ body {
     height: 384px;
     display: grid;
     grid-template-rows: repeat(auto-fit, 1fr);
+    /* grid-template-columns: 1fr auto; */
     padding: 16px;
     gap: 2px;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
 }
 
 .book > div {
