@@ -46,10 +46,7 @@ function createItem(){
     let book = document.createElement('div');
     book.classList.add('book');
     wrapper.appendChild(book);
-    console.log(myLibrary[0])
-    let count = 0;
     for (let [keys, values] of Object.entries(myLibrary.at(-1))){
-        console.log(keys, values)
         if (keys == 'left at' && myLibrary.at(-1)['reading status'] != 'Reading'){
         }else{
             let div = document.createElement('div');
@@ -68,8 +65,27 @@ function createItem(){
             }
         }
     }
+    
+    console.log(myLibrary.indexOf(myLibrary.at(-1)))
 
-    // create svg's
+    // create buttons
+
+    let remove = document.createElement('img');
+    remove.setAttribute('src', './img/close.png');
+    remove.addEventListener('click', () => {
+        // removeBook();
+        console.log('removeBook')
+    })
+    let edit = document.createElement('img');
+    edit.setAttribute('src', './img/pencil.png');
+    edit.addEventListener('click', () => {
+        // editBook();
+        console.log("editBook")
+    })
+    let imgDiv = document.createElement('div');
+    imgDiv.appendChild(remove)
+    imgDiv.appendChild(edit)
+    wrapper.appendChild(imgDiv)
         
     middle.appendChild(wrapper);
 }

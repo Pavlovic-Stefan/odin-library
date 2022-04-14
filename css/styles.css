@@ -148,6 +148,12 @@ body {
     grid-template-columns: 1fr auto;
 }
 
+.wrapper > div > img {
+    height: 16px;
+    width: 16px;
+    margin: 4px;
+}
+
 .book > div {
     display: grid;
     border-bottom: 1px solid rgb(155, 154, 154);
@@ -166,3 +172,5 @@ body {
     width: 274px;
     background-color: rgb(209, 209, 209);
 }
+
+
