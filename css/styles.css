@@ -173,4 +173,8 @@ body {
     background-color: rgb(209, 209, 209);
 }
 
+#left-at:disabled{
+    background-color: rgb(161, 161, 161);
+}
+
 
