@@ -1,5 +1,99 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, 'Roboto', BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    width:100vw;
+    height: 100vh;
+}
+body > div {
+    border:1px solid black;
+}
+.left {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: 0 32px;
+}
+.logo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 128px;
+    align-items: center;
+    justify-items: start;
+}
+.logo > svg {
+    transform: scale(4);
+    justify-self: center;
+}
+.constructor {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(20px, auto));
+}
+.constructor > div {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 8px;
+}
+
+.constructor > div > label {
+    font-size: 14px;
+    font-weight: 900;
+    color: rgb(33, 33, 33);
+}
+
+.constructor > div > input {
+    height: 24px;
+    padding: 0 0 0 12px;
+}
+
+.constructor > div > select {
+    height: 32px;
+    width: calc(90% + 12px);
+    padding: 0 0 0 12px;
+}
+
+.constructor > div > textarea {
+    height: 128px;
+    padding: 12px 0 0 12px;
+}
+
+.constructor > div > textarea, select, input{
+    border: 1px solid rgb(155, 154, 154);
+    border-radius: 4px;
+    width: 90%;
+    background-color: rgb(209, 209, 209);
+}
+
+.constructor > div > input[type='submit']{
+    width: 96px;
+    height: 32px;
+    font-size: 16px;
+    font-weight: 900;
+    justify-self: right;
+    margin: 6px;
+    padding: 0;
+    color: rgb(33, 33, 33);
+}
+
+.constructor > div > input[type='submit']:hover{
+    border: 1px solid rgb(78, 78, 78);
+    border-radius: 4px;
+    background-color: rgb(129, 129, 129);
+}
+
+.constructor > div > input[type='submit']:active{
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 4px;
+    background-color: rgb(236, 236, 236);
+}
+
+.left > footer {
+    padding-bottom: 2px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 900;
 }

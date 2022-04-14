@@ -5,10 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="./js/scripts.js" defer></script>
     <title>Library</title>
 </head>
 <body>
-    
+    <div class="left">
+        <div class="logo">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M3,7V5H5V4C5,2.89 5.9,2 7,2H13V9L15.5,7.5L18,9V2H19C20.05,2 21,2.95 21,4V20C21,21.05 20.05,22 19,22H7C5.95,22 5,21.05 5,20V19H3V17H5V13H3V11H5V7H3M7,11H5V13H7V11M7,7V5H5V7H7M7,19V17H5V19H7Z" />
+            </svg>
+            <h1>Library</h1>
+        </div>
+        <form class="constructor">
+            <div>
+                <label for="book-title">TITLE</label>
+                <input type="text" name="book-title" id="book-title">
+            </div>
+            <div>
+                <label for="book-author">AUTHOR</label>
+                <input type="text" name="book-author" id="book-author">
+            </div>
+            <div>
+                <label for="pages">NUMBER OF PAGES</label>
+                <input type="number" name="pages" id="pages">
+            </div>
+            <div>
+                <label for="reading-status">READING STATUS</label>
+                <select name="reading-status" id="reading-status">
+                    <option value="">Plan to read</option>
+                    <option value="">Reading</option>
+                    <option value="">Read</option>
+                </select>
+            </div>
+            <div>
+                <label for="left-at">LEFT AT</label>
+                <input type="number" name="left-at" id="left-at">
+            </div>
+            <div>
+                <label for="notes">NOTES</label>
+                <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <input type="submit" name="submit" value="ADD">
+            </div>
+        </form>
+        <footer>Made by: man in the sink</footer>
+    </div>
+    <div class="middle"></div>
+    <div class="right"></div>
 </body>
 </html>
