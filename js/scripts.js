@@ -126,13 +126,38 @@ function createItem(){
 
     let remove = document.createElement('img');
     remove.setAttribute('src', './img/close.png');
+    remove.classList.add('remove-button');
     remove.addEventListener('click', () => {
-        // removeBook();
-        console.log('removeBook')
+        let wrappers = document.querySelectorAll('.wrapper');
+        wrappers.forEach(wrap => {
+            if(wrap.getAttribute('data-pos')==remove.getAttribute('data-pos')){
+                myLibrary.splice(wrap.getAttribute('data-pos'), 1);
+                wrap.remove();
+            }
+        })
+        wrappers = document.querySelectorAll('.wrapper');
+        let track = 0;
+        wrappers.forEach(wrap => {
+            wrap.setAttribute('data-pos', track)
+            track++
+        })
+        track = 0;
+        let removeButtons = document.querySelectorAll('.remove-button');
+        removeButtons.forEach(button => {
+            button.setAttribute('data-pos', track)
+            track++
+        })
+        track = 0;
+        let editButtons = document.querySelectorAll('.edit-button');
+        editButtons.forEach(button => {
+            button.setAttribute('data-pos', track)
+            track++
+        })
     })
 
     let edit = document.createElement('img');
     edit.setAttribute('src', './img/pencil.png');
+    edit.classList.add('edit-button');
     edit.addEventListener('click', () => {
         // editBook();
         console.log("editBook")
@@ -201,11 +226,7 @@ function statistics(){
         }
 
         // Keeps track of which book and made by whom has least pages
-        if (item['number of pages'] in leastPages){
-            leastPages[item.title + ' by ' + item.author + ': ' + item['number of pages'] + ' pages'] = item['number of pages'];
-        } else {
-            leastPages[item.title + ' by ' + item.author + ': ' + item['number of pages'] + ' pages'] = item['number of pages'];
-        }
+        leastPages[item.title + ' by ' + item.author + ': ' + item['number of pages'] + ' pages'] = item['number of pages'];
         
     })
     bookFin.textContent = finishedBooks;
@@ -213,8 +234,9 @@ function statistics(){
     bookNotStart.textContent = notStartedBooks;
     totPages.textContent = totalPagesRead;
     favAuth.textContent = Object.keys(favoriteAuthor).reduce((a, b) => favoriteAuthor[a] > favoriteAuthor[b] ? a : b);
-    pageMost.textContent = Object.keys(mostPages).reduce((a, b) => mostPages[a] < mostPages[b] ? a : b);
-    pageLeast.textContent = Object.keys(leastPages).reduce((a, b) => leastPages[a] > leastPages[b] ? a : b);
+    pageMost.textContent = Object.keys(mostPages).reduce((a, b) => mostPages[a] > mostPages[b] ? a : b);
+    pageLeast.textContent = Object.keys(leastPages).reduce((a, b) => leastPages[a] < leastPages[b] ? a : b);
+    console.log(leastPages)
     
 }
 
