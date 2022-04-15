@@ -30,7 +30,7 @@
             </div>
             <div>
                 <label for="pages">NUMBER OF PAGES</label>
-                <input type="number" name="pages" id="pages">
+                <input type="number" name="pages" id="pages" id="left-at" min="1" oninput="this.value = Math.abs(this.value)">
             </div>
             <div>
                 <label for="reading-status">READING STATUS</label>
@@ -42,14 +42,14 @@
             </div>
             <div>
                 <label for="left-at">LEFT AT</label>
-                <input type="number" name="left-at" id="left-at">
+                <input type="number" name="left-at" id="left-at" min="0" oninput="this.value = Math.abs(this.value)">
             </div>
             <div>
                 <label for="notes">NOTES</label>
                 <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
             </div>
             <div>
-                <input class="submit" type="submit" name="submit" value="ADD">
+                <button class="add">ADD</button>
             </div>
         </div>
         <footer>Made by: man in the sink</footer>

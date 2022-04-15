@@ -9,7 +9,7 @@ function Book(title, author, pages, read, leftAt = 0, note='') {
     this['left at'] = leftAt;
     this.notes = note;
 }
-  
+
 function addBookToLibrary(object) {
     // do stuff here
     myLibrary.push(object)
@@ -24,20 +24,62 @@ const notes = document.querySelector('#notes');
 
 const middle = document.querySelector('.middle');
 
+// field validation
 
-const submit = document.querySelector('.submit');
-submit.addEventListener('click', ()=>{
-    let title = bookTitle.value;
-    let author = bookAuthor.value;
-    let pages = numPages.value;
-    let read = readingStatus.value;
-    let leftAt = leftAtPage.value;
-    let note = notes.value;
+bookTitle.addEventListener('change', () => {
+    bookTitle.classList.remove('invalid');
+});
+bookAuthor.addEventListener('change', () => {
+    bookAuthor.classList.remove('invalid');
+});
+numPages.addEventListener('change', () => {
+    numPages.classList.remove('invalid');
+});
+numPages.addEventListener('input', () => {
+    if (numPages.value<=1){
+        numPages.value=1;
+    }
+});
+
+function validate(){
+    if (!leftAtPage.disabled){
+        if (leftAtPage.value=='' || leftAtPage.value == 0){
+            console.log('cancer', leftAtPage.value)
+            readingStatus.value = 'Plan to read'
+            leftAtTextField.value = '';
+            leftAtStatus()
+        }
+    }
+    if (bookTitle.value==''){
+        bookTitle.classList.add('invalid')
+    }
+    if (bookAuthor.value==''){
+        bookAuthor.classList.add('invalid')
+    }
+    if (numPages.value==''){
+        numPages.classList.add('invalid')
+    }
+    if(bookTitle.classList == ('invalid') || bookAuthor.classList == ('invalid') || numPages.classList == ('invalid')){
+        return false
+    }
+}
 
 
-    let newBook = new Book(title, author, pages, read, leftAt, note);
-    addBookToLibrary(newBook);
-    createItem()
+const add = document.querySelector('.add');
+add.addEventListener('click', ()=>{
+    if (validate()){
+        let title = bookTitle.value;
+        let author = bookAuthor.value;
+        let pages = numPages.value;
+        let read = readingStatus.value;
+        let leftAt = leftAtPage.value;
+        let note = notes.value;
+
+
+        let newBook = new Book(title, author, pages, read, leftAt, note);
+        addBookToLibrary(newBook);
+        createItem()
+    }
 })
 
 function createItem(){
@@ -98,6 +140,8 @@ function createItem(){
 
     middle.appendChild(wrapper);
 }
+
+// right side of the page / Statistics
 
 const bookFin = document.querySelector('.books-finished')
 const bookUnfin = document.querySelector('.books-unfinished')
@@ -161,14 +205,19 @@ function statistics(){
     
 }
 
+// Left at field, enable/disable
+
 const readingStatusEvent = document.querySelector('#reading-status')
 const leftAtTextField = document.querySelector('#left-at')
-leftAtTextField.disabled = true;
-readingStatusEvent.addEventListener('change', (event)=>{
-    if (event.target.value != 'Reading'){
-        leftAtTextField.value = '';
-        leftAtTextField.disabled = true;
-    } else {
-        leftAtTextField.disabled = false;
-    }
-})
+function leftAtStatus(){
+    leftAtTextField.disabled = true;
+    readingStatusEvent.addEventListener('change', (event)=>{
+        if (event.target.value != 'Reading'){
+            leftAtTextField.value = '';
+            leftAtTextField.disabled = true;
+        } else {
+            leftAtTextField.disabled = false;
+        }
+    })
+}
+leftAtStatus()
