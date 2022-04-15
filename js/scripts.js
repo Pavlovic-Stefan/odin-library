@@ -24,6 +24,16 @@ const notes = document.querySelector('#notes');
 
 const middle = document.querySelector('.middle');
 
+// clear user input
+function clear(){
+    bookTitle.value = '';
+    bookAuthor.value = '';
+    numPages.value = '';
+    readingStatus.value = 'Plan to read';
+    leftAtPage.value = '';
+    notes.value = '';
+}
+
 // field validation
 
 bookTitle.addEventListener('change', () => {
@@ -142,6 +152,8 @@ function createItem(){
     statistics()
 
     middle.appendChild(wrapper);
+    clear();
+    leftAtStatus();
 }
 
 // right side of the page / Statistics
