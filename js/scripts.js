@@ -55,17 +55,15 @@ function validate(){
             leftAtStatus()
         }
     }
-    if (numPages.value==0){
-        numPages.value=1;
-    }
     if (bookTitle.value==''){
         bookTitle.classList.add('invalid')
     }
     if (bookAuthor.value==''){
         bookAuthor.classList.add('invalid')
     }
-    if (numPages.value==''){
+    if (numPages.value=='' || numPages.value <= 0){
         numPages.classList.add('invalid')
+        numPages.value = '';
     }
     if(bookTitle.classList == ('invalid') || bookAuthor.classList == ('invalid') || numPages.classList == ('invalid')){
         return false
