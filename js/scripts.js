@@ -61,6 +61,8 @@ function validate(){
     }
     if(bookTitle.classList == ('invalid') || bookAuthor.classList == ('invalid') || numPages.classList == ('invalid')){
         return false
+    } else {
+        return true
     }
 }
 
@@ -101,6 +103,9 @@ function createItem(){
             div.appendChild(h4);
             if (keys == 'notes'){
                 let textArea = document.createElement('textarea');
+                textArea.setAttribute('cols', '25');
+                textArea.setAttribute('rows', '6');
+                textArea.readOnly=true;
                 textArea.textContent = values;
                 div.appendChild(textArea);
             } else {
