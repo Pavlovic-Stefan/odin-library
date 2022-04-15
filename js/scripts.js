@@ -35,11 +35,6 @@ bookAuthor.addEventListener('change', () => {
 numPages.addEventListener('change', () => {
     numPages.classList.remove('invalid');
 });
-numPages.addEventListener('input', () => {
-    if (numPages.value<=1){
-        numPages.value=1;
-    }
-});
 
 function validate(){
     if (!leftAtPage.disabled){
@@ -49,6 +44,9 @@ function validate(){
             leftAtTextField.value = '';
             leftAtStatus()
         }
+    }
+    if (numPages.value==0){
+        numPages.value=1;
     }
     if (bookTitle.value==''){
         bookTitle.classList.add('invalid')
