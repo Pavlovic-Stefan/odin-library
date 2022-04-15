@@ -72,6 +72,9 @@ function validate(){
         numPages.classList.add('invalid')
         numPages.value = '';
     }
+    if (leftAtPage.value > numPages.value){
+        leftAtPage.value = numPages.value;
+    }
     if(bookTitle.classList == ('invalid') || bookAuthor.classList == ('invalid') || numPages.classList == ('invalid')){
         return false
     } else {
